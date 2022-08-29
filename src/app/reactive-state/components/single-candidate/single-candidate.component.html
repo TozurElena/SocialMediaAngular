@@ -1,0 +1,26 @@
+<mat-card>
+<!--    ng-container  – il s'agit d'un élément où vous pouvez placer des directives structurelles (  *ngIf  et  *ngFor  , par exemple) qui disparaît à la compilation.
+Ça veut dire que vous n'êtes pas obligé d'ajouter une  div  ou un autre élément HTML si vous avez seulement besoin d'appliquer des directives structurelles ;-->
+    <ng-container *ngIf="candidate$ | async as candidate">
+        <img [src]="candidate.imageUrl" [alt]="candidate.firstName + ' ' + candidate.lastName">
+        <div class="emploee-info">
+            <h1>{{ candidate.firstName}} {{ candidate.lastName }}</h1>
+            <h2>{{ candidate.job }}, {{ candidate.department }} chez {{ candidate.company }}</h2>
+            <h3>Contact: {{ candidate.email }}</h3>
+        </div>
+    </ng-container>
+    <mat-card-actions>
+<!--        le "  else  " d'un  *ngIf  fonctionne comme tout autre  else  :
+si la condition n'est pas remplie, le template passé à  else  sera affiché,-->
+<!--        ng-template  permet d'ajouter un bloc qui n'est pas affiché par défaut, mais auquel on peut faire référence.
+Dans ce cas, vous utilisez la référence locale  #buttons  pour passer tout le contenu du  ng-template  comme bloc "  else  " au  *ngIf  précédent.-->
+        <mat-spinner *ngIf="loading$ | async; else buttons"></mat-spinner>
+        <ng-template #buttons>
+            <div class="action-buttons">
+                <button mat-flat-button color="accent" (click)="onHire()">EMBAUCHER</button>
+                <button mat-flat-button color="warn" (click)="onRefuse()">REFUSER</button>
+            </div>
+            <button mat-flat-button color="primary" (click)="onGoBack()">RETOUR</button>
+        </ng-template>
+    </mat-card-actions>
+</mat-card>
