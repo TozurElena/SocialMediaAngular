@@ -22,6 +22,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## Installez le backend
+Je vous invite à cloner ce repo, à effectuer un npm install , et puis à exécuter  npm run start . Cela lancera un backend extrêmement simple qui vous servira pour tout le reste de ce cours, que vous trouverez sur ce [repository GitHub](https://github.com/OpenClassrooms-Student-Center/angular-advanced-backend).
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
